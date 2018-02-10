@@ -28,6 +28,8 @@ public class SvendPlatform : MonoBehaviour {
 		scale = GetComponent<Transform>();
 
 		direction = true;
+
+		distance = Vector2.Distance(endpoint, startpoint);
 	}
 
 	// Update is called once per frame
@@ -37,14 +39,14 @@ public class SvendPlatform : MonoBehaviour {
 			transform.Translate(movespeed * Time.deltaTime * (endpoint.x - startpoint.x) / distance,
 													movespeed * Time.deltaTime * (endpoint.y - startpoint.y) / distance,
 													0);
-			if(Vector2.Distance(transform.position, endpoint) < 0.1) {
+			if(Vector2.Distance(transform.position, endpoint) < 0.2) {
 				direction = false;
 			}
 		} else {
 			transform.Translate(-movespeed * Time.deltaTime * (endpoint.x - startpoint.x) / distance,
 													-movespeed * Time.deltaTime * (endpoint.y - startpoint.y) / distance,
 													0);
-			if(Vector2.Distance(transform.position, startpoint) < 0.1) {
+			if(Vector2.Distance(transform.position, startpoint) < 0.2) {
 				direction = true;
 			}
 		}
