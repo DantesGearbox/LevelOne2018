@@ -11,6 +11,7 @@ public class MadsPlayerController : MonoBehaviour {
 
 	//Unity components
 	Rigidbody2D rb;
+	RaycastCollisionChecks colInfo;
 
 	//Physics variables - We set these
 	private float maxJumpHeight = 5;					// If this could be in actual unity units somehow, that would be great
@@ -36,6 +37,7 @@ public class MadsPlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
+		colInfo = GetComponent<RaycastCollisionChecks> ();
 		SetupMoveAndJumpSpeed ();
 	}
 	
@@ -45,20 +47,22 @@ public class MadsPlayerController : MonoBehaviour {
 		Jumping ();	
 		HorizontalSpeed ();
 
-		Debug.Log (rb.velocity.x + " " + rb.velocity.y);
+		//Debug.Log (rb.velocity.x + " " + rb.velocity.y);
 	}
 
 	void Jumping(){
 		//Setting the initial jump velocity
 		if(Input.GetKey (jumpKey)){
-			rb.velocity = new Vector2 (rb.velocity.x, 0);
-			rb.velocity += new Vector2 (0, maxJumpVelocity);
+			if(colInfo.bot){
+				rb.velocity = new Vector2 (rb.velocity.x, 0);
+				rb.velocity += new Vector2 (0, maxJumpVelocity);	
+			}
 		} else {
 			if(rb.velocity.y > minJumpVelocity){
 				rb.velocity = new Vector2 (rb.velocity.x, minJumpVelocity);
 			}
 		}
-			
+		
 		//Gravity
 		rb.velocity -= new Vector2 (0, gravity * Time.deltaTime);
 	}
