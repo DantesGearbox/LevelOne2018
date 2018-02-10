@@ -55,7 +55,8 @@ public class MadsPlayerController : MonoBehaviour {
 		if(Input.GetKey (jumpKey)){
 			if(colInfo.bot){
 				rb.velocity = new Vector2 (rb.velocity.x, 0);
-				rb.velocity += new Vector2 (0, maxJumpVelocity);	
+				rb.velocity += new Vector2 (0, maxJumpVelocity);
+				//Debug.Log (rb.velocity.x + " " + rb.velocity.y);
 			}
 		} else {
 			if(rb.velocity.y > minJumpVelocity){
@@ -86,6 +87,9 @@ public class MadsPlayerController : MonoBehaviour {
 	void SetupMoveAndJumpSpeed(){
 		//Scale gravity and jump velocity to jumpHeights and timeToJumpApex
 		gravity = (2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		//Debug.Log ((2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2));
+		//rb.gravityScale = ((2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2))/10.0f;
+		//rb.gravityScale = 0.0f;
 		maxJumpVelocity = gravity * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * gravity * minJumpHeight);
 

@@ -28,16 +28,16 @@ public class SvendPlatform : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(transform.position);
+		//Debug.Log(transform.position);
 		if(direction) {
-			Debug.Log("YEEEES");
+			//Debug.Log("YEEEES");
 			transform.Translate(movespeed * Time.deltaTime, 0, 0);
 			if(transform.position.x > endpoint.x) {
 				direction = false;
 			}
 
 		} else {
-			Debug.Log("NOOOO");
+			//Debug.Log("NOOOO");
 			transform.Translate(-movespeed * Time.deltaTime, 0, 0);
 			if(transform.position.x < startpoint.x) {
 				direction = true;

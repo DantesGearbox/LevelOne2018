@@ -81,6 +81,8 @@ public class RaycastCollisionChecks : MonoBehaviour {
 	void VerticalCollisions(float direction) {
 		float directionY = Mathf.Sign (direction);
 
+
+		bool coll = false;
 		for (int i = 0; i < verticalRayCount; i ++) {
 
 			Vector2 rayOrigin = (directionY == -1.0f) ? raycastOrigins.botLeft : raycastOrigins.topLeft;
@@ -93,17 +95,25 @@ public class RaycastCollisionChecks : MonoBehaviour {
 
 				colInfo.bot = directionY == -1.0f;
 				colInfo.top = directionY == 1.0f;
+				coll = true;
 
-			} else {
+			/*} else {
 				if(direction == -1.0f){ colInfo.bot = false; }
-				if(direction == 1.0f){ colInfo.top = false; }
+				if(direction == 1.0f){ colInfo.top = false; }*/
 			}
 		}
+
+		if(!coll){
+			if(direction == -1.0f){ colInfo.bot = false; }
+			if(direction == 1.0f){ colInfo.top = false; }
+		}
+
 	}
 
 	void HorizontalCollisions(float direction) {
 		float directionX = Mathf.Sign (direction);
 
+		bool coll = false;
 		for (int i = 0; i < horizontalRayCount; i ++) {
 			Vector2 rayOrigin = (directionX == -1.0f) ? raycastOrigins.botLeft : raycastOrigins.botRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
@@ -114,10 +124,16 @@ public class RaycastCollisionChecks : MonoBehaviour {
 			if (hit) {
 				colInfo.left = directionX == -1.0f;
 				colInfo.right = directionX == 1.0f;
-			} else {
+				coll = true;
+			/*} else {
 				if(direction == -1.0f){ colInfo.left = false; }
-				if(direction == 1.0f){ colInfo.right = false; }
+				if(direction == 1.0f){ colInfo.right = false; }*/
 			}
+		}
+
+		if(coll){
+			if(direction == -1.0f){ colInfo.left = false; }
+			if(direction == 1.0f){ colInfo.right = false; }
 		}
 	}
 
