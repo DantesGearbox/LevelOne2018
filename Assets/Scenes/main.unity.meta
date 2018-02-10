@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/main.unity.meta
 guid: bec69354ecef9b74aa7e9cf95f7733f6
 timeCreated: 1518223386
+=======
+guid: 9e04922fb0e41ad4b8a86f366affea29
+timeCreated: 1518223017
+>>>>>>> 72d6ecf83e4948e47ffad11b50cd8d13b1aae787:Assets/Scenes/main.unity.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
