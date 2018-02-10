@@ -45,7 +45,7 @@ public class MadsPlayerController : MonoBehaviour {
 		Jumping ();	
 		HorizontalSpeed ();
 
-		//Debug.Log (rb.velocity.x + " " + rb.velocity.y);
+		Debug.Log (rb.velocity.x + " " + rb.velocity.y);
 	}
 
 	void Jumping(){
