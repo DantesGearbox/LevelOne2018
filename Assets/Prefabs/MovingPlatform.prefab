@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114388076694893166}
   m_Layer: 8
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 2
+  xaxis: 1
+  endpoint: {x: 0, y: 0}
 --- !u!212 &212939847923299318
 SpriteRenderer:
   m_ObjectHideFlags: 1
